@@ -38,5 +38,10 @@ namespace PpaiDsiCu17.Entidades
         {
             ValidacionRequeridas.Add(validacion);
         }
+
+        public List<Validacion> getValidaciones()
+        {
+            return validacionRequeridas;
+        }
     }
 }

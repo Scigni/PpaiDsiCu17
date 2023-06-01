@@ -30,6 +30,10 @@ namespace PpaiDsiCu17.Entidades
         public string NroOrden { get => nroOrden; set => nroOrden = value; }
         public List<OpcionLlamada> Opcion { get => opcion; set => opcion = value; }
 
+        public string getNombre()
+        {
+            return nombre;
+        }
         public string getAudioMensajeOpciones()
         {
             return AudioMensajeOpciones;

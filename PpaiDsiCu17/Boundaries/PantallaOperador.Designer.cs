@@ -183,6 +183,7 @@
             Controls.Add(validacionesBox);
             Controls.Add(groupBox1);
             Name = "PantallaOperador";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrar Respuesta";
             Load += PantallaOperador_Load;
             groupBox1.ResumeLayout(false);

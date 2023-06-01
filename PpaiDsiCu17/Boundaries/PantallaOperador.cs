@@ -149,12 +149,12 @@ namespace PpaiDsiCu17.Boundaries
                 return;
             }
             validacionAceptada(numTab);
-            Console.WriteLine(checkAllValidacionesAceptadas());
-            if (!checkAllValidacionesAceptadas())
+            Console.WriteLine(isAllValidacionesAceptadas());
+            if (!isAllValidacionesAceptadas())
             {
                 registrarButton.Enabled = true;
             }
-            
+
             ((Control)tabPages[numTab]).Enabled = false;
         }
 
@@ -173,7 +173,7 @@ namespace PpaiDsiCu17.Boundaries
             validacionesAceptadas[numtab] = true;
         }
 
-        private bool checkAllValidacionesAceptadas()
+        private bool isAllValidacionesAceptadas()
         {
             return validacionesAceptadas.Any(a => a == false);
         }
@@ -185,9 +185,20 @@ namespace PpaiDsiCu17.Boundaries
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            pedirDescripcionAccion();
         }
 
+        private void pedirDescripcionAccion()
+        {
+            Form form = new Form();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+        }
+
+        private void solicitarConfirmacion()
+        {
+
+        }
         private void cancelarButton_Click_1(object sender, EventArgs e)
         {
             Close();

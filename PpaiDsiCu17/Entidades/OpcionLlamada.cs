@@ -50,5 +50,10 @@ namespace PpaiDsiCu17.Entidades
         {
             // TODO: 
         }
+
+        public List<Validacion> getValidaciones()
+        {
+            return validacionesRequeridas;
+        }
     }
 }

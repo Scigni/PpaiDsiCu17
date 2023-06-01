@@ -78,15 +78,24 @@ namespace PpaiDsiCu17.Entidades
             return Cliente.getNombre();
         }
 
-        public void getRespuestas()
+        public string getNombreOpcion()
         {
-            // TODO:
+            return opcionSeleccionada.Nombre;
         }
 
-        public bool esDePeriodo()
+        public string? getNombreSubOpcion()
         {
-            // TODO:
-            return false;
+            return subOpcionSeleccionada?.Nombre ;
+        }
+
+        public List<Validacion> getValidacions()
+        {
+            return this.subOpcionSeleccionada != null ? subOpcionSeleccionada.getValidaciones() : opcionSeleccionada.getValidaciones();
+        }
+
+        public Cliente getCliente()
+        {
+            return cliente;
         }
 
         public TimeSpan calcularDuracion()

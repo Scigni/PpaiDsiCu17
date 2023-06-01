@@ -26,15 +26,14 @@ namespace PpaiDsiCu17.Entidades
         public string NroCelular { get => nroCelular; set => nroCelular = value; }
         public List<InformacionCliente> Info { get => info; set => info = value; }
 
-        public bool esCliente()
-        {
-            // TODO:
-            return false;
-        }
-
         public string getNombre()
         {
             return NombreCompleto;
+        }
+
+        public List<InformacionCliente> getInformacionCliente()
+        {
+            return info;
         }
     }
 }

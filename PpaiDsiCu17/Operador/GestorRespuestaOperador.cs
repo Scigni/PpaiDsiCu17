@@ -37,12 +37,11 @@ namespace PpaiDsiCu17.Operador
         {
             llamadaEntrante.setEstadoActual(estadosPosibles["en curso"]);
             string nombreCliente = llamadaEntrante.getNombreClienteDeLlamada();
-            string categoriaSeleccionada = categoriaElegida.Nombre;
-            string opcionSeleccionada = llamadaEntrante.OpcionSeleccionada.Nombre;
-            string subOpcionSeleccionada = llamadaEntrante.SubOpcionSellecionada?.Nombre;
-            Console.WriteLine($"es {subOpcionSeleccionada != null}");
-            List<Validacion> validaciones = subOpcionSeleccionada != null ?
-                llamadaEntrante.SubOpcionSellecionada.ValidacionRequeridas : llamadaEntrante.OpcionSeleccionada.ValidacionesRequeridas;
+            string categoriaSeleccionada = categoriaElegida.getNombre();
+            string opcionSeleccionada = llamadaEntrante.getNombreOpcion();
+            string subOpcionSeleccionada = llamadaEntrante.getNombreSubOpcion();
+            List<Validacion> validaciones = llamadaEntrante.getValidacions();
+
             Console.WriteLine($"test a {validaciones.Count}");
             pantalla.habilitarPantalla();
             pantalla.mostrarDatosConsulta(nombreCliente, categoriaSeleccionada, opcionSeleccionada, subOpcionSeleccionada);
@@ -52,7 +51,7 @@ namespace PpaiDsiCu17.Operador
         public bool tomarRespuesta(string datoAValidar, string tipoInformacion)
         {
             bool resultado = false;
-            List<InformacionCliente> informacion = this.llamadaEntrante.Cliente.Info;
+            List<InformacionCliente> informacion = llamadaEntrante.getCliente().getInformacionCliente();
             foreach (InformacionCliente i in informacion)
             {
                 Console.WriteLine($"ES : {i.Tipo.Descripcion.Equals(tipoInformacion)}");
