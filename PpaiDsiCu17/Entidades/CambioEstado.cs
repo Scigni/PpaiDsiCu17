@@ -11,9 +11,9 @@ namespace PpaiDsiCu17.Entidades
         private DateTime fechaHoraIniciio;
         private Estado estado;
 
-        public CambioEstado(DateTime fechaHoraIniciio, Estado estado)
+        public CambioEstado(Estado estado)
         {
-            this.FechaHoraIniciio = fechaHoraIniciio;
+            this.FechaHoraIniciio = DateTime.Now;
             this.Estado = estado;
         }
 

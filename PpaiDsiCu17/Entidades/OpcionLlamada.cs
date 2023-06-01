@@ -15,6 +15,15 @@ namespace PpaiDsiCu17.Entidades
         private List<SubOpcionLlamada> subOpcionLlamada;
         private List<Validacion> validacionesRequeridas;
 
+        public OpcionLlamada(string audioMensajeSubopciones, string mensajeSubopciones, string nombre, string nroOrden, List<SubOpcionLlamada> subOpcionLlamada)
+        {
+            this.audioMensajeSubopciones = audioMensajeSubopciones;
+            this.mensajeSubopciones = mensajeSubopciones;
+            this.nombre = nombre;
+            this.nroOrden = nroOrden;
+            this.subOpcionLlamada = subOpcionLlamada;
+        }
+
         public OpcionLlamada(string audioMensajeSubopciones, string mensajeSubopciones, string nombre, string nroOrden, List<SubOpcionLlamada> subOpcionLlamada, List<Validacion> validacionesRequeridas)
         {
             this.AudioMensajeSubopciones = audioMensajeSubopciones;

@@ -13,9 +13,8 @@ namespace PpaiDsiCu17.Entidades
         private OpcionValidacion opcionCorrecta;
         private TipoInformacion tipo;
 
-        public InformacionCliente(string datoAValidar, Validacion validacion, OpcionValidacion opcionCorrecta, TipoInformacion tipo)
+        public InformacionCliente(Validacion validacion, OpcionValidacion opcionCorrecta, TipoInformacion tipo)
         {
-            this.DatoAValidar = datoAValidar;
             this.Validacion = validacion;
             this.OpcionCorrecta = opcionCorrecta;
             this.Tipo = tipo;

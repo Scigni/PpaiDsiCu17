@@ -18,8 +18,16 @@ namespace PpaiDsiCu17.Entidades
         private Cliente cliente;
         private Usuario operador;
         private Usuario auditor;
-        private SubOpcionLlamada subOpcionSellecionada;
+        private SubOpcionLlamada subOpcionSeleccionada;
         private OpcionLlamada opcionSeleccionada;
+
+        public Llamada(Cliente cliente, OpcionLlamada opcionSeleccionada, SubOpcionLlamada subOpcionSeleccionada)
+        {
+            this.cliente = cliente;
+            this.opcionSeleccionada = opcionSeleccionada;
+            this.subOpcionSeleccionada = subOpcionSeleccionada;
+            this.cambioEstado = new List<CambioEstado>();
+        }
 
         public Llamada(string descripcionOperador, string detalleAccionRequerida, TimeSpan duracion, bool encuestaEnviada, string observacionAuditor, List<CambioEstado> cambioEstado, Accion accionRequerida, Cliente cliente, Usuario operador, Usuario auditor, SubOpcionLlamada subOpcionSellecionada, OpcionLlamada opcionSeleccionada)
         {
@@ -47,7 +55,7 @@ namespace PpaiDsiCu17.Entidades
         public Cliente Cliente { get => cliente; set => cliente = value; }
         public Usuario Operador { get => operador; set => operador = value; }
         public Usuario Auditor { get => auditor; set => auditor = value; }
-        public SubOpcionLlamada SubOpcionSellecionada { get => subOpcionSellecionada; set => subOpcionSellecionada = value; }
+        public SubOpcionLlamada SubOpcionSellecionada { get => subOpcionSeleccionada; set => subOpcionSeleccionada = value; }
         public OpcionLlamada OpcionSeleccionada { get => opcionSeleccionada; set => opcionSeleccionada = value; }
 
         public TimeSpan getDuracion()
@@ -60,14 +68,14 @@ namespace PpaiDsiCu17.Entidades
             this.Duracion = duracion;
         }
 
-        public void setEstadoActual()
+        public void setEstadoActual(Estado estado)
         {
-            // TODO:
+            CambioEstado.Add(new CambioEstado(estado));
         }
 
-        public void getNombreClienteDeLlamada()
+        public string getNombreClienteDeLlamada()
         {
-            // TODO:
+            return Cliente.getNombre();
         }
 
         public void getRespuestas()

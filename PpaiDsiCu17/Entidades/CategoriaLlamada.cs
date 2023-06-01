@@ -34,5 +34,10 @@ namespace PpaiDsiCu17.Entidades
         {
             return AudioMensajeOpciones;
         }
+
+        public void addOpcion(OpcionLlamada opcion)
+        {
+            Opcion.Add(opcion);
+        }
     }
 }

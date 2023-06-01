@@ -8,21 +8,20 @@ namespace PpaiDsiCu17.Entidades
 {
     public class OpcionValidacion
     {
-        private bool correcta;
+        private string correcta;
         private string descripcion;
 
-        public OpcionValidacion(bool correcta, string descripcion)
+        public OpcionValidacion(string correcta)
         {
             this.Correcta = correcta;
-            this.Descripcion = descripcion;
         }
 
-        public bool Correcta { get => correcta; set => correcta = value; }
+        public string Correcta { get => correcta; set => correcta = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
 
-        public bool esCorrecta()
+        public bool esCorrecta(string opcionAValidar)
         {
-            return Correcta;
+            return Correcta.Equals(opcionAValidar);
         }
 
         public string getDescripcion()

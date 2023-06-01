@@ -11,9 +11,9 @@ namespace PpaiDsiCu17.Entidades
         private string dni;
         private string nombreCompleto;
         private string nroCelular;
-        private InformacionCliente info;
+        private List<InformacionCliente> info;
 
-        public Cliente(string dni, string nombreCompleto, string nroCelular, InformacionCliente info)
+        public Cliente(string dni, string nombreCompleto, string nroCelular, List<InformacionCliente> info)
         {
             this.Dni = dni;
             this.NombreCompleto = nombreCompleto;
@@ -24,7 +24,7 @@ namespace PpaiDsiCu17.Entidades
         public string Dni { get => dni; set => dni = value; }
         public string NombreCompleto { get => nombreCompleto; set => nombreCompleto = value; }
         public string NroCelular { get => nroCelular; set => nroCelular = value; }
-        internal InformacionCliente Info { get => info; set => info = value; }
+        public List<InformacionCliente> Info { get => info; set => info = value; }
 
         public bool esCliente()
         {
