@@ -109,8 +109,8 @@ namespace PpaiDsiCu17.Entidades
         }
         public TimeSpan calcularDuracion()
         {
-            CambioEstado lastCambio = cambioEstado[cambioEstado.Count];
-            CambioEstado preCambio = cambioEstado[cambioEstado.Count - 1];
+            CambioEstado lastCambio = cambioEstado[cambioEstado.Count - 1];
+            CambioEstado preCambio = cambioEstado[cambioEstado.Count - 2];
 
             return lastCambio.getFechaHoraInicio() - preCambio.getFechaHoraInicio();
         }

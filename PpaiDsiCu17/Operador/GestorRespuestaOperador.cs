@@ -44,7 +44,6 @@ namespace PpaiDsiCu17.Operador
             string subOpcionSeleccionada = llamadaEntrante.getNombreSubOpcion();
             List<Validacion> validaciones = llamadaEntrante.getValidacions();
 
-            Console.WriteLine($"test a {validaciones.Count}");
             pantalla.habilitarPantalla();
             pantalla.mostrarDatosConsulta(nombreCliente, categoriaSeleccionada, opcionSeleccionada, subOpcionSeleccionada);
             pantalla.pedirDatosAValidar(validaciones);

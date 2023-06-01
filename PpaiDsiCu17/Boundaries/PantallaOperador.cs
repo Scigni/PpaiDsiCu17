@@ -21,7 +21,6 @@ namespace PpaiDsiCu17.Boundaries
         private List<TabPage> tabPages = new List<TabPage>();
         public PantallaOperador()
         {
-            AllocConsole();
             TipoInformacion tipoInfo1 = new TipoInformacion("fecha de nacimiento");
             OpcionValidacion opcionCorrecta1 = new OpcionValidacion("01/01/2000");
 
@@ -102,7 +101,6 @@ namespace PpaiDsiCu17.Boundaries
 
         public void pedirDatosAValidar(List<Validacion> validaciones)
         {
-            Console.WriteLine("test", validaciones.Count);
             TabControl tabControl = new TabControl();
             tabControl.Location = new Point(6, 22);
             tabControl.Size = new Size(367, 148);
@@ -110,9 +108,7 @@ namespace PpaiDsiCu17.Boundaries
             for (int i = 0; i < validaciones.Count; i++)
             {
                 validacionesAceptadas.Add(false);
-                Console.WriteLine(i);
                 TabPage tabPage = new TabPage($"Validacion {i + 1}");
-                Console.WriteLine(i);
                 Label label = new Label();
                 label.Text = $"Ingrese la {validaciones[i].Nombre}:";
                 label.Location = new Point(6, 9);
@@ -149,7 +145,6 @@ namespace PpaiDsiCu17.Boundaries
                 return;
             }
             validacionAceptada(numTab);
-            Console.WriteLine(isAllValidacionesAceptadas());
             if (!isAllValidacionesAceptadas())
             {
                 registrarButton.Enabled = true;
@@ -285,10 +280,5 @@ namespace PpaiDsiCu17.Boundaries
             form.Close();
             this.Enabled = true;
         }
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AllocConsole();
-
     }
 }
