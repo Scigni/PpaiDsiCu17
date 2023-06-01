@@ -21,11 +21,13 @@ namespace PpaiDsiCu17.Operador
             Estado estadoIniciada = new Estado("Iniciada");
             Estado estadoEnCurso = new Estado("En Curso");
             Estado estadoFinalizada = new Estado("Finalizada");
+            Estado estadoCancelada = new Estado("Cancelada");
 
             this.estadosPosibles = new Dictionary<string, Estado>()
             {
                 { "iniciada", estadoIniciada },
                 { "en curso", estadoEnCurso },
+                { "cancelada", estadoCancelada },
                 { "finalizada", estadoFinalizada }
             };
             this.llamadaEntrante = llamadaEntrante;
@@ -64,10 +66,25 @@ namespace PpaiDsiCu17.Operador
             return resultado;
         }
 
-        public void tomarDescripcionOperador()
+        public void tomarDescripcionAccion(string descripcionOperador, string accion)
         {
+            llamadaEntrante.setDescripcionOperador(descripcionOperador);
+            llamadaEntrante.setAccion(new Accion(accion));
 
+            pantalla.solicitarConfirmacion();
         }
 
+        public void llamarCU28()
+        {
+            // a
+            registrarLlamada();
+        }
+
+        public void registrarLlamada()
+        {
+            llamadaEntrante.setEstadoActual(estadosPosibles["finalizada"]);
+            TimeSpan duracion = llamadaEntrante.calcularDuracion();
+            llamadaEntrante.setDuracion(duracion);
+        }
     }
 }

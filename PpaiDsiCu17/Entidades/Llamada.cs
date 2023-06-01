@@ -98,10 +98,21 @@ namespace PpaiDsiCu17.Entidades
             return cliente;
         }
 
+        public void setDescripcionOperador(string descripcionOperador)
+        {
+            this.descripcionOperador = descripcionOperador;
+        }
+
+        public void setAccion(Accion accionRequerida)
+        {
+            this.accionRequerida = accionRequerida;
+        }
         public TimeSpan calcularDuracion()
         {
-            // TODO: 
-            return TimeSpan.Zero;
+            CambioEstado lastCambio = cambioEstado[cambioEstado.Count];
+            CambioEstado preCambio = cambioEstado[cambioEstado.Count - 1];
+
+            return lastCambio.getFechaHoraInicio() - preCambio.getFechaHoraInicio();
         }
     }
 

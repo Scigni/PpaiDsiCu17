@@ -193,15 +193,97 @@ namespace PpaiDsiCu17.Boundaries
             Form form = new Form();
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
+            this.Enabled = false;
+
+            Label label = new Label();
+            label.Text = "Ingrese una descripcion (opcional)";
+            label.Location = new Point(20, 20);
+            label.AutoSize = true;
+
+            TextBox textBox = new TextBox();
+            textBox.Multiline = true;
+            textBox.Size = new Size(form.Width - 60, 40);
+            textBox.Location = new Point(label.Location.X, label.Location.Y + 20);
+
+            Label label2 = new Label();
+            label2.Text = "Ingrese la accion";
+            label2.Location = new Point(20, 100);
+            label2.AutoSize = true;
+
+            TextBox textBox2 = new TextBox();
+            textBox2.Multiline = true;
+            textBox2.Size = new Size(form.Width - 60, 40);
+            textBox2.Location = new Point(label2.Location.X, label2.Location.Y + 20);
+
+            Button button = new Button();
+            button.Text = "Registrar accion";
+            button.Location = new Point(form.Width - 100, form.Height - 100);
+            button.Click += (sender, e) => this.tomarDescripcionAccion(sender, e, textBox.Text, textBox2.Text);
+
+            Button button1 = new Button();
+            button1.Text = "Cancelar";
+            button1.Location = new Point(10, form.Height - 100);
+            button1.Click += (sender, e) => this.cancelarButtonSubPantalla(sender, e, form);
+
+            form.Controls.Add(label);
+            form.Controls.Add(textBox);
+            form.Controls.Add(label2);
+            form.Controls.Add(textBox2);
+            form.Controls.Add(button);
+            form.Controls.Add(button1); 
         }
 
-        private void solicitarConfirmacion()
+        private void tomarDescripcionAccion(object sender, EventArgs e, string descripcion, string accion)
         {
+            gestor.tomarDescripcionAccion(descripcion, accion);
+        }
 
+        public void solicitarConfirmacion()
+        {
+            Form form = new Form();
+            form.Size = new Size(200,200);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+
+            Label label = new Label();
+            label.Text = "Confirmar Operacion";
+            label.Font = new Font(label.Font, FontStyle.Bold);
+            label.AutoSize = true;
+            label.Location = new Point(20, 20);
+
+            Button button = new Button();
+            button.Location = new Point(20, 100);
+            button.Text = "CANCELAR";
+            button.FlatStyle = FlatStyle.Flat;
+            button.ForeColor = Color.Red;
+            button.Click += (sender, e) => cancelarButtonSubPantalla(sender, e, form);
+
+            Button button1 = new Button();
+            button1.Location = new Point(100, 100);
+            button1.Text = "OK";
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.Green;
+            button1.Click += confirmarOperacion;
+
+            form.Controls.Add(label);
+            form.Controls.Add(button);
+            form.Controls.Add(button1);
+        }
+
+        private void confirmarOperacion(object sender, EventArgs e)
+        {
+            gestor.llamarCU28();
+            this.Close();
         }
         private void cancelarButton_Click_1(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void cancelarButtonSubPantalla(object sender, EventArgs e, Form form)
+        {
+            form.Close();
+            this.Enabled = true;
         }
 
         [DllImport("kernel32.dll", SetLastError = true)]
